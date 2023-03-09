@@ -1,12 +1,9 @@
 package com.example.lab8;
 
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 
@@ -28,5 +25,14 @@ public class CustomListTest {
         int listSize = list.getCount();
         list.addCity(new City("Ciry", "PR")); // yes the ciry and pr are intentional
         assertEquals(list.getCount(), listSize + 1);
+    }
+
+    @Test
+    void testHasCity() {
+        list = MockCityList();
+        City city = new City("Charlottetown", "Prince Edward Island");
+        assertFalse(list.hasCity(city));
+        list.add(city);
+        assertTrue(list.hasCity(city));
     }
 }
