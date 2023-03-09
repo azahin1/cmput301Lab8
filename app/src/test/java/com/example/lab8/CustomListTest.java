@@ -4,7 +4,7 @@ package com.example.lab8;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-//import org.junit.Before;
+import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -18,14 +18,15 @@ public class CustomListTest {
      * @return
      */
     public CustomList MockCityList() {
-        list = new CustomList(null,, new ArrayList<>());
+        list = new CustomList(null, new ArrayList<>());
         return list;
     }
 
+    @Test
     public void addCityTest() {
         list = MockCityList();
         int listSize = list.getCount();
-        list.addCity(new City("Ciry", "PR"));
+        list.addCity(new City("Ciry", "PR")); // yes the ciry and pr are intentional
         assertEquals(list.getCount(), listSize + 1);
     }
 }
